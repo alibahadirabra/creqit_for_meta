@@ -1,24 +1,19 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:lead_id",
  "creation": "2024-04-21 12:00:00.000000",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "lead_id",
-  "campaign",
-  "column_break_2",
-  "created_time",
-  "full_name",
-  "email",
-  "phone_number",
-  "section_break_7",
-  "ad_name",
-  "adset_name",
-  "form_name",
-  "section_break_11",
-  "custom_questions"
+  "form",
+  "created_date",
+  "ad_id",
+  "page_id",
+  "column_break_6",
+  "field_data"
  ],
  "fields": [
   {
@@ -28,75 +23,45 @@
    "read_only": 1
   },
   {
-   "fieldname": "campaign",
+   "fieldname": "form",
    "fieldtype": "Link",
-   "label": "Kampanya",
-   "options": "Meta Campaign",
-   "reqd": 1
+   "label": "Form",
+   "options": "Meta Lead Form"
   },
   {
-   "fieldname": "column_break_2",
+   "fieldname": "created_date",
+   "fieldtype": "Date",
+   "label": "Created Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ad_id",
+   "fieldtype": "Data",
+   "label": "Ad ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "page_id",
+   "fieldtype": "Data",
+   "label": "Page ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "created_time",
-   "fieldtype": "Datetime",
-   "label": "Oluşturulma Zamanı",
-   "read_only": 1
-  },
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "label": "Ad Soyad"
-  },
-  {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "E-posta"
-  },
-  {
-   "fieldname": "phone_number",
-   "fieldtype": "Data",
-   "label": "Telefon"
-  },
-  {
-   "fieldname": "section_break_7",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "ad_name",
-   "fieldtype": "Data",
-   "label": "Reklam Adı",
-   "read_only": 1
-  },
-  {
-   "fieldname": "adset_name",
-   "fieldtype": "Data",
-   "label": "Reklam Seti",
-   "read_only": 1
-  },
-  {
-   "fieldname": "form_name",
-   "fieldtype": "Data",
-   "label": "Form Adı",
-   "read_only": 1
-  },
-  {
-   "fieldname": "section_break_11",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "custom_questions",
+   "fieldname": "field_data",
    "fieldtype": "Table",
-   "label": "Özel Sorular",
-   "options": "Meta Lead Custom Question"
+   "label": "Field Data",
+   "options": "Meta Lead Field Data"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
  "modified": "2024-04-21 12:00:00.000000",
  "modified_by": "Administrator",
- "module": "Creqit",
+ "module": "Meta",
  "name": "Meta Lead",
  "owner": "Administrator",
  "permissions": [

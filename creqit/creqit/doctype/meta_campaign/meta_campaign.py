@@ -1,41 +1,75 @@
 import frappe
 from frappe.model.document import Document
-from creqit.meta_integration import MetaIntegration
+from creqit.integrations.meta import MetaIntegration
 
 class MetaCampaign(Document):
     def before_save(self):
         if not self.campaign_id:
             # Yeni kampanya oluştur
             meta = MetaIntegration()
-            campaign = meta.create_campaign(
+            campaign = meta.campaigns.create_campaign(
                 name=self.campaign_name,
                 objective=self.objective,
-                status=self.status
+                status=self.status,
+                daily_budget=self.daily_budget,
+                lifetime_budget=self.lifetime_budget
             )
             self.campaign_id = campaign['id']
-            
-            # Bütçe ayarla
-            if self.daily_budget or self.lifetime_budget:
-                meta.update_campaign_budget(
-                    campaign_id=self.campaign_id,
-                    daily_budget=self.daily_budget,
-                    lifetime_budget=self.lifetime_budget
-                )
-    
-    def onload(self):
-        if self.campaign_id:
-            # Kampanya performansını güncelle
+        else:
+            # Mevcut kampanyayı güncelle
             meta = MetaIntegration()
-            insights = meta.get_campaign_insights(self.campaign_id)
+            meta.campaigns.update_campaign(
+                self.campaign_id,
+                name=self.campaign_name,
+                status=self.status,
+                daily_budget=self.daily_budget,
+                lifetime_budget=self.lifetime_budget
+            )
+
+    def on_trash(self):
+        if self.campaign_id:
+            meta = MetaIntegration()
+            meta.campaigns.delete_campaign(self.campaign_id)
+
+    def sync_insights(self):
+        """Kampanya performans metriklerini senkronize et"""
+        if self.campaign_id:
+            meta = MetaIntegration()
+            insights = meta.insights.get_campaign_insights(self.campaign_id)
+            
             if insights:
                 insight = insights[0]
                 self.impressions = insight.get('impressions', 0)
                 self.clicks = insight.get('clicks', 0)
                 self.spend = insight.get('spend', 0)
+                self.reach = insight.get('reach', 0)
+                self.cpm = insight.get('cpm', 0)
+                self.ctr = insight.get('ctr', 0)
                 
-                # Leadleri güncelle
-                self.update_leads()
-    
+                self.save()
+
+    def sync_adsets(self):
+        """Kampanyaya ait ad setlerini senkronize et"""
+        if self.campaign_id:
+            meta = MetaIntegration()
+            adsets = meta.campaigns.get_campaign_adsets(self.campaign_id)
+            
+            # Mevcut ad setlerini temizle
+            self.adsets = []
+            
+            for adset in adsets:
+                self.append('adsets', {
+                    'adset_name': adset['name'],
+                    'adset_id': adset['id'],
+                    'status': adset['status'],
+                    'daily_budget': adset.get('daily_budget', 0),
+                    'lifetime_budget': adset.get('lifetime_budget', 0),
+                    'start_date': adset.get('start_time'),
+                    'end_date': adset.get('end_time')
+                })
+            
+            self.save()
+
     def update_leads(self):
         """Kampanyaya ait leadleri günceller"""
         meta = MetaIntegration()

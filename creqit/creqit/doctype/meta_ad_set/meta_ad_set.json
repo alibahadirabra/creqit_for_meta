@@ -1,15 +1,15 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:campaign_name",
+ "autoname": "field:adset_name",
  "creation": "2024-04-21 12:00:00.000000",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "campaign_name",
-  "campaign_id",
-  "objective",
+  "adset_name",
+  "adset_id",
+  "campaign",
   "status",
   "daily_budget",
   "lifetime_budget",
@@ -23,26 +23,26 @@
   "cpm",
   "ctr",
   "section_break_17",
-  "adsets"
+  "ads"
  ],
  "fields": [
   {
-   "fieldname": "campaign_name",
+   "fieldname": "adset_name",
    "fieldtype": "Data",
-   "label": "Campaign Name",
+   "label": "Ad Set Name",
    "unique": 1
   },
   {
-   "fieldname": "campaign_id",
+   "fieldname": "adset_id",
    "fieldtype": "Data",
-   "label": "Campaign ID",
+   "label": "Ad Set ID",
    "read_only": 1
   },
   {
-   "fieldname": "objective",
-   "fieldtype": "Select",
-   "label": "Objective",
-   "options": "LINK_CLICKS\nPOST_ENGAGEMENT\nPAGE_LIKES\nLEAD_GENERATION\nMESSAGES\nCONVERSIONS"
+   "fieldname": "campaign",
+   "fieldtype": "Link",
+   "label": "Campaign",
+   "options": "Meta Campaign"
   },
   {
    "fieldname": "status",
@@ -115,10 +115,10 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "adsets",
+   "fieldname": "ads",
    "fieldtype": "Table",
-   "label": "Ad Sets",
-   "options": "Meta Ad Set"
+   "label": "Ads",
+   "options": "Meta Ad"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -126,7 +126,7 @@
  "modified": "2024-04-21 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "Meta",
- "name": "Meta Campaign",
+ "name": "Meta Ad Set",
  "owner": "Administrator",
  "permissions": [
   {
