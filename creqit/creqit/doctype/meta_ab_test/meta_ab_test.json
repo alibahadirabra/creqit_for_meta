@@ -1,0 +1,148 @@
+{
+ "actions": [],
+ "creation": "2024-03-19 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "test_name",
+  "test_id",
+  "status",
+  "ad_account_id",
+  "test_type",
+  "column_section_break",
+  "test_config_section",
+  "start_time",
+  "end_time",
+  "test_percentage",
+  "test_objective",
+  "variations_section",
+  "variations",
+  "results_section",
+  "winner",
+  "confidence_level",
+  "improvement_percentage"
+ ],
+ "fields": [
+  {
+   "fieldname": "test_name",
+   "fieldtype": "Data",
+   "label": "Test Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "test_id",
+   "fieldtype": "Data",
+   "label": "Test ID",
+   "read_only": 1
+  },
+  {
+   "default": "ACTIVE",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "ACTIVE\nCOMPLETED\nCANCELLED"
+  },
+  {
+   "fieldname": "ad_account_id",
+   "fieldtype": "Data",
+   "label": "Ad Account ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "test_type",
+   "fieldtype": "Select",
+   "label": "Test Type",
+   "options": "CREATIVE\nTARGETING\nPLACEMENT\nBID_STRATEGY"
+  },
+  {
+   "fieldname": "column_section_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "test_config_section",
+   "fieldtype": "Section Break",
+   "label": "Test Configuration"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "test_percentage",
+   "fieldtype": "Percent",
+   "label": "Test Percentage",
+   "default": "50",
+   "description": "Percentage of audience to include in the test"
+  },
+  {
+   "fieldname": "test_objective",
+   "fieldtype": "Select",
+   "label": "Test Objective",
+   "options": "CLICKS\nCONVERSIONS\nREACH\nENGAGEMENT"
+  },
+  {
+   "fieldname": "variations_section",
+   "fieldtype": "Section Break",
+   "label": "Test Variations"
+  },
+  {
+   "fieldname": "variations",
+   "fieldtype": "Table",
+   "label": "Variations",
+   "options": "Meta AB Test Variation"
+  },
+  {
+   "fieldname": "results_section",
+   "fieldtype": "Section Break",
+   "label": "Test Results"
+  },
+  {
+   "fieldname": "winner",
+   "fieldtype": "Data",
+   "label": "Winner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "confidence_level",
+   "fieldtype": "Percent",
+   "label": "Confidence Level",
+   "read_only": 1
+  },
+  {
+   "fieldname": "improvement_percentage",
+   "fieldtype": "Percent",
+   "label": "Improvement Percentage",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-19 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Creqit",
+ "name": "Meta AB Test",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+} 

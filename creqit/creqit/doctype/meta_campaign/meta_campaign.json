@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "creation": "2024-03-19 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "campaign_name",
+  "campaign_id",
+  "status",
+  "objective",
+  "daily_budget",
+  "lifetime_budget",
+  "start_time",
+  "stop_time",
+  "column_section_break",
+  "ad_account_id",
+  "ad_set_section",
+  "ad_sets",
+  "performance_section",
+  "impressions",
+  "clicks",
+  "spend",
+  "cpm",
+  "cpc",
+  "ctr"
+ ],
+ "fields": [
+  {
+   "fieldname": "campaign_name",
+   "fieldtype": "Data",
+   "label": "Campaign Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "campaign_id",
+   "fieldtype": "Data",
+   "label": "Campaign ID",
+   "read_only": 1
+  },
+  {
+   "default": "ACTIVE",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "ACTIVE\nPAUSED\nDELETED\nARCHIVED"
+  },
+  {
+   "fieldname": "objective",
+   "fieldtype": "Select",
+   "label": "Objective",
+   "options": "LINK_CLICKS\nPOST_ENGAGEMENT\nPAGE_LIKES\nVIDEO_VIEWS\nLEAD_GENERATION\nCONVERSIONS\nREACH\nBRAND_AWARENESS"
+  },
+  {
+   "fieldname": "daily_budget",
+   "fieldtype": "Currency",
+   "label": "Daily Budget"
+  },
+  {
+   "fieldname": "lifetime_budget",
+   "fieldtype": "Currency",
+   "label": "Lifetime Budget"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "stop_time",
+   "fieldtype": "Datetime",
+   "label": "Stop Time"
+  },
+  {
+   "fieldname": "column_section_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ad_account_id",
+   "fieldtype": "Data",
+   "label": "Ad Account ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ad_set_section",
+   "fieldtype": "Section Break",
+   "label": "Ad Sets"
+  },
+  {
+   "fieldname": "ad_sets",
+   "fieldtype": "Table",
+   "label": "Ad Sets",
+   "options": "Meta Ad Set"
+  },
+  {
+   "fieldname": "performance_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Metrics"
+  },
+  {
+   "fieldname": "impressions",
+   "fieldtype": "Int",
+   "label": "Impressions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "clicks",
+   "fieldtype": "Int",
+   "label": "Clicks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "spend",
+   "fieldtype": "Currency",
+   "label": "Spend",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cpm",
+   "fieldtype": "Currency",
+   "label": "CPM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cpc",
+   "fieldtype": "Currency",
+   "label": "CPC",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ctr",
+   "fieldtype": "Percent",
+   "label": "CTR",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-19 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Creqit",
+ "name": "Meta Campaign",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+} 

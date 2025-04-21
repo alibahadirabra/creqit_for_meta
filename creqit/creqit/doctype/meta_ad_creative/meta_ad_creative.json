@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "creation": "2024-03-19 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "creative_name",
+  "creative_id",
+  "status",
+  "ad_set",
+  "creative_type",
+  "column_section_break",
+  "content_section",
+  "title",
+  "body",
+  "image_url",
+  "video_url",
+  "link_url",
+  "call_to_action",
+  "instagram_section",
+  "instagram_story",
+  "instagram_feed",
+  "lead_form_section",
+  "lead_form_id",
+  "lead_form_name",
+  "performance_section",
+  "impressions",
+  "clicks",
+  "spend",
+  "cpm",
+  "cpc",
+  "ctr"
+ ],
+ "fields": [
+  {
+   "fieldname": "creative_name",
+   "fieldtype": "Data",
+   "label": "Creative Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creative_id",
+   "fieldtype": "Data",
+   "label": "Creative ID",
+   "read_only": 1
+  },
+  {
+   "default": "ACTIVE",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "ACTIVE\nPAUSED\nDELETED\nARCHIVED"
+  },
+  {
+   "fieldname": "ad_set",
+   "fieldtype": "Link",
+   "label": "Ad Set",
+   "options": "Meta Ad Set",
+   "reqd": 1
+  },
+  {
+   "fieldname": "creative_type",
+   "fieldtype": "Select",
+   "label": "Creative Type",
+   "options": "IMAGE\nVIDEO\nCAROUSEL\nSLIDESHOW\nLEAD_FORM"
+  },
+  {
+   "fieldname": "column_section_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "content_section",
+   "fieldtype": "Section Break",
+   "label": "Content"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "body",
+   "fieldtype": "Text",
+   "label": "Body"
+  },
+  {
+   "fieldname": "image_url",
+   "fieldtype": "Data",
+   "label": "Image URL"
+  },
+  {
+   "fieldname": "video_url",
+   "fieldtype": "Data",
+   "label": "Video URL"
+  },
+  {
+   "fieldname": "link_url",
+   "fieldtype": "Data",
+   "label": "Link URL"
+  },
+  {
+   "fieldname": "call_to_action",
+   "fieldtype": "Select",
+   "label": "Call to Action",
+   "options": "LEARN_MORE\nSIGN_UP\nDOWNLOAD\nSHOP_NOW\nBOOK_NOW\nCONTACT_US"
+  },
+  {
+   "fieldname": "instagram_section",
+   "fieldtype": "Section Break",
+   "label": "Instagram Settings"
+  },
+  {
+   "fieldname": "instagram_story",
+   "fieldtype": "Check",
+   "label": "Instagram Story"
+  },
+  {
+   "fieldname": "instagram_feed",
+   "fieldtype": "Check",
+   "label": "Instagram Feed"
+  },
+  {
+   "fieldname": "lead_form_section",
+   "fieldtype": "Section Break",
+   "label": "Lead Form Settings"
+  },
+  {
+   "fieldname": "lead_form_id",
+   "fieldtype": "Data",
+   "label": "Lead Form ID"
+  },
+  {
+   "fieldname": "lead_form_name",
+   "fieldtype": "Data",
+   "label": "Lead Form Name"
+  },
+  {
+   "fieldname": "performance_section",
+   "fieldtype": "Section Break",
+   "label": "Performance Metrics"
+  },
+  {
+   "fieldname": "impressions",
+   "fieldtype": "Int",
+   "label": "Impressions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "clicks",
+   "fieldtype": "Int",
+   "label": "Clicks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "spend",
+   "fieldtype": "Currency",
+   "label": "Spend",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cpm",
+   "fieldtype": "Currency",
+   "label": "CPM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cpc",
+   "fieldtype": "Currency",
+   "label": "CPC",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ctr",
+   "fieldtype": "Percent",
+   "label": "CTR",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-19 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Creqit",
+ "name": "Meta Ad Creative",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+} 
