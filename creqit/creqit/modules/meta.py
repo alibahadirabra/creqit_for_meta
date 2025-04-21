@@ -2,24 +2,26 @@ import frappe
 
 def after_install():
     """Meta entegrasyonu kurulum sonrası yapılacak işlemler"""
-    create_meta_module()
     create_meta_settings()
+    update_doctype_modules()
 
-def create_meta_module():
-    """Meta modülünü oluştur"""
-    if not frappe.db.exists("Module Def", "Meta"):
-        doc = frappe.get_doc({
-            "doctype": "Module Def",
-            "module_name": "Meta",
-            "app_name": "creqit",
-            "restrict_to_domain": None,
-            "custom": 0,
-            "color": "#FF4B4B",
-            "icon": "octicon octicon-megaphone",
-            "exclude_from_auto_install": 0,
-            "documentation": None
-        })
-        doc.insert()
+def update_doctype_modules():
+    """Doctype'ların modülünü Meta olarak güncelle"""
+    doctypes = [
+        "Meta Campaign",
+        "Meta Ad Set",
+        "Meta Ad",
+        "Meta Lead Form",
+        "Meta Lead",
+        "Meta Lead Field Data",
+        "Meta Settings"
+    ]
+    
+    for doctype in doctypes:
+        if frappe.db.exists("DocType", doctype):
+            doc = frappe.get_doc("DocType", doctype)
+            doc.module = "Meta"
+            doc.save()
 
 def create_meta_settings():
     """Meta ayarlarını oluştur"""
