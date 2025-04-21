@@ -1,0 +1,33 @@
+.meta-campaign {
+    margin: 15px 0;
+}
+
+.meta-campaign .form-section {
+    margin-bottom: 30px;
+}
+
+.meta-campaign .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.meta-campaign .metric-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.meta-campaign .metric-card .label {
+    color: #757575;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.meta-campaign .metric-card .value {
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+} 
