@@ -1,141 +1,115 @@
 {
  "actions": [],
- "creation": "2024-03-19 10:00:00.000000",
+ "allow_rename": 1,
+ "creation": "2024-04-21 12:00:00.000000",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "campaign_name",
   "campaign_id",
-  "status",
   "objective",
+  "status",
   "daily_budget",
   "lifetime_budget",
-  "start_time",
-  "stop_time",
-  "column_section_break",
-  "ad_account_id",
-  "ad_set_section",
-  "ad_sets",
-  "performance_section",
+  "column_break_7",
+  "start_date",
+  "end_date",
   "impressions",
   "clicks",
   "spend",
-  "cpm",
-  "cpc",
-  "ctr"
+  "section_break_13",
+  "leads_section",
+  "leads"
  ],
  "fields": [
   {
    "fieldname": "campaign_name",
    "fieldtype": "Data",
-   "label": "Campaign Name",
+   "label": "Kampanya Adı",
    "reqd": 1
   },
   {
    "fieldname": "campaign_id",
    "fieldtype": "Data",
-   "label": "Campaign ID",
+   "label": "Meta Kampanya ID",
    "read_only": 1
-  },
-  {
-   "default": "ACTIVE",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "ACTIVE\nPAUSED\nDELETED\nARCHIVED"
   },
   {
    "fieldname": "objective",
    "fieldtype": "Select",
-   "label": "Objective",
-   "options": "LINK_CLICKS\nPOST_ENGAGEMENT\nPAGE_LIKES\nVIDEO_VIEWS\nLEAD_GENERATION\nCONVERSIONS\nREACH\nBRAND_AWARENESS"
+   "label": "Hedef",
+   "options": "LEAD_GENERATION\nREACH\nTRAFFIC\nCONVERSIONS",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Durum",
+   "options": "ACTIVE\nPAUSED\nDELETED",
+   "reqd": 1
   },
   {
    "fieldname": "daily_budget",
    "fieldtype": "Currency",
-   "label": "Daily Budget"
+   "label": "Günlük Bütçe"
   },
   {
    "fieldname": "lifetime_budget",
    "fieldtype": "Currency",
-   "label": "Lifetime Budget"
+   "label": "Toplam Bütçe"
   },
   {
-   "fieldname": "start_time",
-   "fieldtype": "Datetime",
-   "label": "Start Time"
-  },
-  {
-   "fieldname": "stop_time",
-   "fieldtype": "Datetime",
-   "label": "Stop Time"
-  },
-  {
-   "fieldname": "column_section_break",
+   "fieldname": "column_break_7",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "ad_account_id",
-   "fieldtype": "Data",
-   "label": "Ad Account ID",
-   "reqd": 1
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Başlangıç Tarihi"
   },
   {
-   "fieldname": "ad_set_section",
-   "fieldtype": "Section Break",
-   "label": "Ad Sets"
-  },
-  {
-   "fieldname": "ad_sets",
-   "fieldtype": "Table",
-   "label": "Ad Sets",
-   "options": "Meta Ad Set"
-  },
-  {
-   "fieldname": "performance_section",
-   "fieldtype": "Section Break",
-   "label": "Performance Metrics"
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "Bitiş Tarihi"
   },
   {
    "fieldname": "impressions",
    "fieldtype": "Int",
-   "label": "Impressions",
+   "label": "Gösterim",
    "read_only": 1
   },
   {
    "fieldname": "clicks",
    "fieldtype": "Int",
-   "label": "Clicks",
+   "label": "Tıklama",
    "read_only": 1
   },
   {
    "fieldname": "spend",
    "fieldtype": "Currency",
-   "label": "Spend",
+   "label": "Harcama",
    "read_only": 1
   },
   {
-   "fieldname": "cpm",
-   "fieldtype": "Currency",
-   "label": "CPM",
-   "read_only": 1
+   "fieldname": "section_break_13",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "cpc",
-   "fieldtype": "Currency",
-   "label": "CPC",
-   "read_only": 1
+   "fieldname": "leads_section",
+   "fieldtype": "Section Break",
+   "label": "Leadler"
   },
   {
-   "fieldname": "ctr",
-   "fieldtype": "Percent",
-   "label": "CTR",
-   "read_only": 1
+   "fieldname": "leads",
+   "fieldtype": "Table",
+   "label": "Leadler",
+   "options": "Meta Lead"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-19 10:00:00.000000",
+ "modified": "2024-04-21 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "Creqit",
  "name": "Meta Campaign",
@@ -145,8 +119,10 @@
    "create": 1,
    "delete": 1,
    "email": 1,
+   "export": 1,
    "print": 1,
    "read": 1,
+   "report": 1,
    "role": "System Manager",
    "share": 1,
    "write": 1
