@@ -1,5 +1,5 @@
-import frappe
-from frappe.model.document import Document
+import creqit
+from creqit.model.document import Document
 
 class MetaDashboard(Document):
     def onload(self):
@@ -9,13 +9,13 @@ class MetaDashboard(Document):
     def update_stats(self):
         """Dashboard istatistiklerini günceller"""
         # Toplam kampanya sayısı
-        self.total_campaigns = frappe.db.count('Meta Campaign')
+        self.total_campaigns = creqit.db.count('Meta Campaign')
         
         # Aktif kampanya sayısı
-        self.active_campaigns = frappe.db.count('Meta Campaign', filters={'status': 'ACTIVE'})
+        self.active_campaigns = creqit.db.count('Meta Campaign', filters={'status': 'ACTIVE'})
         
         # Toplam harcama
-        total_spend = frappe.db.sql("""
+        total_spend = creqit.db.sql("""
             SELECT SUM(spend) 
             FROM `tabMeta Campaign`
             WHERE spend IS NOT NULL
@@ -23,10 +23,10 @@ class MetaDashboard(Document):
         self.total_spend = total_spend
         
         # Toplam lead sayısı
-        self.total_leads = frappe.db.count('Meta Lead')
+        self.total_leads = creqit.db.count('Meta Lead')
         
         # Kampanyaları getir
-        campaigns = frappe.get_all('Meta Campaign', 
+        campaigns = creqit.get_all('Meta Campaign', 
             fields=['name', 'campaign_name', 'status', 'impressions', 'clicks', 'spend'],
             order_by='modified DESC'
         )

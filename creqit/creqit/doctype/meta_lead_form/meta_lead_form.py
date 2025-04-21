@@ -1,5 +1,5 @@
-import frappe
-from frappe.model.document import Document
+import creqit
+from creqit.model.document import Document
 from creqit.integrations.meta import MetaIntegration
 
 class MetaLeadForm(Document):
@@ -51,7 +51,7 @@ class MetaLeadForm(Document):
             self.leads_table = []
             
             for lead in leads:
-                lead_doc = frappe.get_doc({
+                lead_doc = creqit.get_doc({
                     'doctype': 'Meta Lead',
                     'lead_id': lead['id'],
                     'form': self.name,

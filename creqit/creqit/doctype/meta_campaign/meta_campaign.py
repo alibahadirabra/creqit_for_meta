@@ -1,5 +1,5 @@
-import frappe
-from frappe.model.document import Document
+import creqit
+from creqit.model.document import Document
 from creqit.integrations.meta import MetaIntegration
 
 class MetaCampaign(Document):
@@ -76,8 +76,8 @@ class MetaCampaign(Document):
         leads = meta.get_leads(self.campaign_id)
         
         for lead_data in leads:
-            if not frappe.db.exists('Meta Lead', {'lead_id': lead_data['id']}):
-                lead = frappe.get_doc({
+            if not creqit.db.exists('Meta Lead', {'lead_id': lead_data['id']}):
+                lead = creqit.get_doc({
                     'doctype': 'Meta Lead',
                     'lead_id': lead_data['id'],
                     'campaign': self.name,

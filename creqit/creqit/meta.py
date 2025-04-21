@@ -1,4 +1,4 @@
-import frappe
+import creqit
 
 def after_install():
     """Meta entegrasyonu kurulum sonrası yapılacak işlemler"""
@@ -7,8 +7,8 @@ def after_install():
 
 def create_meta_module():
     """Meta modülünü oluştur"""
-    if not frappe.db.exists("Module Def", "Meta"):
-        doc = frappe.get_doc({
+    if not creqit.db.exists("Module Def", "Meta"):
+        doc = creqit.get_doc({
             "doctype": "Module Def",
             "module_name": "Meta",
             "app_name": "creqit",
@@ -23,8 +23,8 @@ def create_meta_module():
 
 def create_meta_settings():
     """Meta ayarlarını oluştur"""
-    if not frappe.db.exists("DocType", "Meta Settings"):
-        doc = frappe.get_doc({
+    if not creqit.db.exists("DocType", "Meta Settings"):
+        doc = creqit.get_doc({
             "doctype": "DocType",
             "name": "Meta Settings",
             "module": "Meta",
@@ -74,8 +74,8 @@ def create_meta_settings():
         doc.insert()
 
     # Meta Settings dokümanını oluştur
-    if not frappe.db.exists("Meta Settings", "Meta Settings"):
-        doc = frappe.get_doc({
+    if not creqit.db.exists("Meta Settings", "Meta Settings"):
+        doc = creqit.get_doc({
             "doctype": "Meta Settings",
             "meta_settings_name": "Meta Settings",
             "auto_sync": 1,
